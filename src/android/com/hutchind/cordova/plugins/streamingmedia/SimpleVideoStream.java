@@ -129,7 +129,9 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 	}
 
 	private void stop() {
-		Log.d(TAG, "Stopping video.");
+		Log.d(TAG, "svs Stopping video.");
+		mMediaPlayer = null;
+        Log.d(TAG, "svs Set local pointer to null.");
 		mVideoView.stopPlayback();
 	}
 
