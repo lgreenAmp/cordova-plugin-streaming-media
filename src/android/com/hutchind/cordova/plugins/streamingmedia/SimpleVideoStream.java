@@ -136,21 +136,23 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		Log.d(TAG, "onDestroy triggered.");
+		Log.d(TAG, "svs - onDestroy triggered.");
 		stop();
         if (mMediaPlayer!=null){
             try {
                 mMediaPlayer.reset();
                 mMediaPlayer.release();
+                Log.d(TAG, "svs - released mediaplayer.");
             } catch (Exception e) {
                 Log.e(TAG, e.toString());
             }
             mMediaPlayer = null;
+            Log.d(TAG, "svs - mediaplayer set to null.");
         }
 	}
 
 	private void wrapItUp(int resultCode, String message) {
-		Log.d(TAG, "wrapItUp was triggered.");
+		Log.d(TAG, "svs - wrapItUp was triggered.");
 		Intent intent = new Intent();
 		intent.putExtra("message", message);
 		setResult(resultCode, intent);
