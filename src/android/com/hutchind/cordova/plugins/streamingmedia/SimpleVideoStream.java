@@ -138,6 +138,15 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 		super.onDestroy();
 		Log.d(TAG, "onDestroy triggered.");
 		stop();
+        if (mMediaPlayer!=null){
+            try {
+                mMediaPlayer.reset();
+                mMediaPlayer.release();
+            } catch (Exception e) {
+                Log.e(TAG, e.toString());
+            }
+            mMediaPlayer = null;
+        }
 	}
 
 	private void wrapItUp(int resultCode, String message) {
