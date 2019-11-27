@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.widget.MediaController;
 import android.content.Intent;
@@ -78,6 +79,7 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 			mVideoView.setOnPreparedListener(this);
 			mVideoView.setOnErrorListener(this);
 			mVideoView.setVideoURI(videoUri);
+			mVideoView.setAudioFocusRequest(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 			mMediaController = new MediaController(this);
 			mMediaController.setAnchorView(mVideoView);
 			mMediaController.setMediaPlayer(mVideoView);
