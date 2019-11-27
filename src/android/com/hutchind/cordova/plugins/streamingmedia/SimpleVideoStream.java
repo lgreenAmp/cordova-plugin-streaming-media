@@ -140,7 +140,6 @@ MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
 		stop();
         if (mMediaPlayer!=null){
             try {
-                mMediaPlayer.reset();
                 mMediaPlayer.release();
                 Log.d(TAG, "svs - released mediaplayer.");
             } catch (Exception e) {
